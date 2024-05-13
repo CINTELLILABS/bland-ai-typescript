@@ -5,6 +5,9 @@
     "repository": "https://github.com/CINTELLILABS/bland-ai-typescript",
     "main": "./index.js",
     "types": "./index.d.ts",
+    "bin": {
+        "bland": "./bin/cli.js"
+    },
     "scripts": {
         "format": "prettier . --write --ignore-unknown",
         "build": "tsc",

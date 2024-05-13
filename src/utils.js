@@ -8,7 +8,11 @@ async function loadDSLFromFile(filePath) {
       console.error("File is empty");
       return null;
     }
+<<<<<<< HEAD
     const res = await fetch("https://api.bland.ai/v1/parse", {
+=======
+    const res = await fetch("http://localhost:3000/parse", {
+>>>>>>> 8d988d1 (resolve)
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -23,8 +27,11 @@ async function loadDSLFromFile(filePath) {
     const parsedInfo = await res.json();
 
     // console.log("Parsed Info:", parsedInfo);
+<<<<<<< HEAD
     console.log("Parsed Info:", parsedInfo.pathway_id, parsedInfo.nodes, parsedInfo.edges, parsedInfo.name);
     console.log("Parsed .bland file successfully!");
+=======
+>>>>>>> 8d988d1 (resolve)
     return parsedInfo;
   } catch (err) {
     console.error(
@@ -37,7 +44,11 @@ async function loadDSLFromFile(filePath) {
 
 async function updatePathway(pathway_id, nodes, edges, name, apiKey) {
   const res = await fetch(
+<<<<<<< HEAD
     `https://api.bland.ai/v1/convo_pathway/${pathway_id}`,
+=======
+    `http://localhost:3000/v1/convo_pathway/${pathway_id}`,
+>>>>>>> 8d988d1 (resolve)
     {
       method: "POST",
       headers: {
