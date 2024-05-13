@@ -1,6 +1,6 @@
 {
     "name": "bland-ai",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "private": false,
     "repository": "https://github.com/CINTELLILABS/bland-ai-typescript",
     "main": "./index.js",
@@ -10,6 +10,9 @@
         "build": "tsc",
         "prepack": "cp -rv dist/. .",
         "test": "jest"
+    },
+    "bin": {
+        "bland": "./bin/cli.js"
     },
     "dependencies": {
         "url-join": "4.0.1",

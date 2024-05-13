@@ -1,0 +1,7 @@
+{
+  "apiKey": "<enter api key here>",
+  "call_data": {
+    "phone_number": "+1234567890",
+    "voice": "maya"
+  }
+}
