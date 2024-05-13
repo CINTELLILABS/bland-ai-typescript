@@ -1,0 +1,93 @@
+name: testing update
+pathway_id: eb24324f-4d0b-4472-95db-ba1fae021bf3
+globalPrompt: "You are an AI assistant for a restaurant. You are helping a user make a reservation."
+
+AskForReservationInfo:
+  say: "Can you please tell me for when you would like to make the reservation and for how many guests?"
+  isStart: true
+  condition: "Condition is failed if user fails to provide information about date, time and number of guests"
+  pathways:
+    - label: "user provides complete information"
+      description: "The user has provided all required information for a reservation."
+      node: "ReservationBooking"
+
+ReservationBooking:
+  say: "I have availability for the requested time. Would you like to proceed with the reservation?"
+  condition: "Condition is failed if user does not confirm the reservation"
+  pathways:
+    - label: "user confirms the reservation"
+      description: "The user confirms they want to proceed with the booking at the given time."
+      node: "ReservationSuccessful"
+    - label: "user does not confirm the reservation"
+      description: "The user does not confirm or explicitly rejects proceeding with the reservation."
+      node: "FindNewTimeslot"
+
+FindNewTimeslot:
+  say: "I am sorry, I do not have availability for the requested time. Would you like to try a different time?"
+  condition: "Condition is failed if user does not provide a new time"
+  pathways:
+    - label: "user provides a new time"
+      description: "The user suggests an alternative time for the reservation."
+      node: "ReservationBooking"
+
+ReservationSuccessful:
+  type: "End Call"
+  prompt: "Tell the user that 'Your reservation is successful. Have a great day!'"
+
+
+KnowledgeBase:
+  type: "Knowledge Base"
+  prompt: "Answer any questions the user has"
+  kb: "The store is open from 9-5pm"
+  isGlobal: true
+  globalLabel: "If user asks a question about the store"
+  globalDescription: "Choose this pathway if the user asks a question about the store, such as the opening hours or location."
+
+
+Transfer Call:
+    type: "Transfer Call"
+    prompt: "Transfer the call to a human agent"
+    isGlobal: true
+    globalLabel: "If user asks to speak to a human agent"
+    globalDescription: "Choose this pathway if the user asks to speak to a human agent."
+    transferNumber: "+1234567890"
+    modelOptions:
+      - modelName: "smart"
+      - tempearture: 0.3
+
+Webhook:
+  type: "Webhook"
+  say: "Please give me a moment as I check our bookings..."
+  extractVars:
+    - name: "date"
+      type: "string"
+      description: "The date for the reservation"
+    - name: "time"
+      type: "string"
+      description: "The time for the reservation"
+    - name: "guests"
+      type: "string"
+      description: "The number of guests for the reservation"
+  url: "https://webhook.site/1b1b1b1b-1b1b-1b1b-1b1b-1b1b1b1b1b1b"
+  method: "POST"
+  headers:
+    Content-Type: "application/json"
+  body:
+    date: "{{date}}"
+    time: "{{time}}"
+  responseData: 
+    - name: "reservation_success"
+      data: "$.reserved"
+      context: "The response from the webhook to confirm the reservation"
+    - name: "available_slots"
+      data: "$.available_slots"
+      context: "The list of available slots remaining"
+  responsePathways:
+    - variable: "reservation_success" 
+      equality: "=="
+      value: "true"
+      node: "ReservationSuccessful"
+    - variable: "reservation_success"
+      equality: "=="
+      value: "false"
+      node: "FindNewTimeslot"
