@@ -23,6 +23,8 @@ async function loadDSLFromFile(filePath) {
     const parsedInfo = await res.json();
 
     // console.log("Parsed Info:", parsedInfo);
+    console.log("Parsed Info:", parsedInfo.pathway_id, parsedInfo.nodes, parsedInfo.edges, parsedInfo.name);
+    console.log("Parsed .bland file successfully!");
     return parsedInfo;
   } catch (err) {
     console.error(
