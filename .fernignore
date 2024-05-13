@@ -6,4 +6,4 @@ README.md
 ./src/config.js
 ./src/utils.js
 .blandrc
-
+package.json
