@@ -19,7 +19,8 @@
         "js-yaml": "^4.1.0",
         "node-fetch": "2.7.0",
         "qs": "6.11.2",
-        "url-join": "4.0.1"
+        "url-join": "4.0.1",
+        "yargs": "^17.7.2"
     },
     "devDependencies": {
         "@types/jest": "29.5.5",
