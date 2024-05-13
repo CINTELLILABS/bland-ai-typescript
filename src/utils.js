@@ -8,7 +8,7 @@ async function loadDSLFromFile(filePath) {
       console.error("File is empty");
       return null;
     }
-    const res = await fetch("http://localhost:3000/parse", {
+    const res = await fetch("https://api.bland.ai/v1/parse", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -35,7 +35,7 @@ async function loadDSLFromFile(filePath) {
 
 async function updatePathway(pathway_id, nodes, edges, name, apiKey) {
   const res = await fetch(
-    `http://localhost:3000/v1/convo_pathway/${pathway_id}`,
+    `https://api.bland.ai/v1/convo_pathway/${pathway_id}`,
     {
       method: "POST",
       headers: {
