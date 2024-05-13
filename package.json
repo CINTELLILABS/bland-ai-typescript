@@ -1,6 +1,6 @@
 {
     "name": "bland-ai",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "private": false,
     "repository": "https://github.com/CINTELLILABS/bland-ai-typescript",
     "main": "./index.js",
@@ -15,7 +15,9 @@
         "url-join": "4.0.1",
         "form-data": "4.0.0",
         "node-fetch": "2.7.0",
-        "qs": "6.11.2"
+        "qs": "6.11.2",
+        "js-yaml": "^4.1.0",
+        "yargs": "^17.7.2"
     },
     "devDependencies": {
         "@types/url-join": "4.0.1",
