@@ -6,7 +6,7 @@ const { readConfig } = require("../src/config")
 
 const config = readConfig();
 
-if (Object.keys(config).length === 0) {
+if (!config || Object.keys(config).length === 0) {
     console.error(
         "No configuration found. Please ensure you have a .blandrc file in your home directory or the current directory."
         );
