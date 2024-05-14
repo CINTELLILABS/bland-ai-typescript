@@ -1,5 +1,5 @@
 name: testing update
-pathway_id: eb24324f-4d0b-4472-95db-ba1fae021bf3
+pathway_id: "Enter a pathway ID here"
 globalPrompt: "You are an AI assistant for a restaurant. You are helping a user make a reservation."
 
 AskForReservationInfo:

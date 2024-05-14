@@ -14,7 +14,10 @@ We have also built a VSCode Extension, that provides syntax highlighting as well
 
 ## .Bland Language Syntax
 
-`.bland` is a language that BlandAI wrote to help you programatically create Conversational Pathways. The language is designed to be human-readable and easy to understand, especially if you have used the visual builder before. Here is an example of a `.bland` file:
+`.bland` is a language that BlandAI wrote to help you programatically create Conversational Pathways. The language is designed to be human-readable and easy to understand, especially if you have used the visual builder before. To better understand how Conversational Pathways work, do refer to our Pathways Documentation [here](https://docs.bland.ai/docs/conversational-pathways). It is highly recommended to have a good understanding of Pathways before using the `.bland` language.
+
+
+ Here is an example of a `.bland` file:
 ```bland
 
 name: Reservation Pathway

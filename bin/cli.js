@@ -51,7 +51,6 @@ const argv = yargs(hideBin(process.argv))
           );
           return;
         }
-        console.log("i am in here", "apiKey", config.apiKey);
         const res = await loadDSLFromFile(args.file);
         await updatePathway(
           res.pathway_id,
