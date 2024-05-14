@@ -6,4 +6,6 @@ README.md
 ./src/config.js
 ./src/utils.js
 .blandrc
+./dot-bland.md
+
 package.json
