@@ -5,6 +5,13 @@
 
 The BlandAI TypeScript library provides convenient access to the BlandAI API from JavaScript/TypeScript.
 
+## .Bland Files Support + CLI Tool
+
+The Bland CLI complements our TypeScript library by providing a command-line tool for interacting with the brand new - .bland files. .bland is a language BlandAI wrote to help you programatically create [Conversational Pathways](https://docs.bland.ai/tutorials/pathways)!
+
+A full guide to using .Bland Files is available [here](./dot-bland.md)
+
+
 ## Documentation
 
 API reference documentation is available [here](https://bland.docs.buildwithfern.com/api-v1/call).
