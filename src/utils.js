@@ -37,11 +37,7 @@ async function loadDSLFromFile(filePath) {
 
 async function updatePathway(pathway_id, nodes, edges, name, apiKey) {
   const res = await fetch(
-<<<<<<< HEAD
     `https://api.bland.ai/v1/convo_pathway/${pathway_id}`,
-=======
-    `http://localhost:3000/v1/convo_pathway/${pathway_id}`,
->>>>>>> 8d988d1 (resolve)
     {
       method: "POST",
       headers: {
